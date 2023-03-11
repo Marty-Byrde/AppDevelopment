@@ -17,5 +17,17 @@ fun main() {
     vehicles.add(Vehicle(4, "Audi A4", dummyBrand, workshops, 100, 12, generateValues(60, 5).toDouble(), 100.0))
     vehicles.add(Vehicle(5, "Audi A5", dummyBrand, workshops, 100, 12, generateValues(60, 5).toDouble(), 100.0))
 
-    for(vehicle in vehicles) vehicle.printInfo()
+
+
+    for(vehicle in vehicles) {
+        val km = generateValues(1, 20)
+        println("Driving a vehicle for $km kilometers around the city.")
+        vehicle.drive(km)
+        vehicle.printInfo()
+
+        println()
+    }
+
+    val authorizedWorkshop = vehicles[0].getWorkshop(9020)
+    println(authorizedWorkshop)
 }
