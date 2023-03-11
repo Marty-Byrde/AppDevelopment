@@ -1,6 +1,7 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
-    println("Program arguments: ${args.joinToString()}")
+fun main() {
+    println("Main script has been started!")
+
+    val dummyBrand = Brand("CarBrand", "Austria", "+43 182 1238138", "em@mail.at")
 
     val workshops = ArrayList<Workshop>()
     workshops.add(Workshop("Workshop Nr 1", "Autria", 9020, "Klagenfurt", "Street1", "+43 664 3827371"))
@@ -10,10 +11,6 @@ fun main(args: Array<String>) {
     workshops.add(Workshop("Workshop Nr 5", "Autria", 9060, "Feldkirchen", "Street5", "+43 664 3827371"))
 
     val vehicles = ArrayList<Vehicle>()
-
-    val dummyBrand = Brand("CarBrand", "Austria", "+43 182 1238138", "em@mail.at")
-
-
     vehicles.add(Vehicle(1, "Audi A1", dummyBrand, workshops, 100, 12, generateValues(60, 5).toDouble(), 100.0))
     vehicles.add(Vehicle(2, "Audi A2", dummyBrand, workshops, 100, 12, generateValues(60, 5).toDouble(), 100.0))
     vehicles.add(Vehicle(3, "Audi A3", dummyBrand, workshops, 100, 12, generateValues(60, 5).toDouble(), 100.0))
