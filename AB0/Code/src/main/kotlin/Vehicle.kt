@@ -29,7 +29,7 @@ class Vehicle(id: Int, name: String, brand: Brand, workshops: ArrayList<Workshop
         return speed;
     }
 
-    fun generateValues() : Int = (Math.random() * 4 + 3).toInt()
+
 
     fun drive(kilometers: Int) {
         for(km in kilometers downTo 0){
@@ -57,11 +57,7 @@ class Vehicle(id: Int, name: String, brand: Brand, workshops: ArrayList<Workshop
     }
 }
 
-
-
-
-
-
+fun generateValues(min: Int = 3, max: Int = 7) : Int = (Math.random() * (max-min) + min).toInt()
 
 
 
