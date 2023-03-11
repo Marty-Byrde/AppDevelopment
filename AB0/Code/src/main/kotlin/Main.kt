@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
         10, 100, 10.0, 100.0)
 
     vehicle.printInfo()
-    ;
+
 
 
 }

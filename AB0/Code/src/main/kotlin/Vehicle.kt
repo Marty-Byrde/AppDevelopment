@@ -1,5 +1,5 @@
 
-class Vehicle(id: Int, name: String, brand: Brand, workshops: Workshop, weight: Int, maxPermissionableWeight: Int, speed: Double, maxSpeed: Double)  {
+class Vehicle(id: Int, name: String, brand: Brand, workshops: ArrayList<Workshop>, weight: Int, maxPermissionableWeight: Int, speed: Double, maxSpeed: Double)  {
     private var id = id;
     private var name = name
     private var brand = brand
@@ -37,6 +37,10 @@ class Vehicle(id: Int, name: String, brand: Brand, workshops: Workshop, weight: 
             for(brk in generateValues() downTo 0) brake();
 
         }
+    }
+
+    fun getWorkshop(postcode: Int) : Workshop? {
+        return workshops.find { w -> w.getPostCode() == postcode }
     }
 
     fun printInfo(){

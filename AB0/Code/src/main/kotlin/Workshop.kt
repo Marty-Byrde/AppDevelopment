@@ -10,4 +10,8 @@ class Workshop(name: String, country: String, postCode: Int, city: String, stree
         return "Workshop(name='$name', country='$country', postCode=$postCode, city='$city', street='$street', phone='$phone')"
     }
 
+    fun getPostCode() : Int{
+        return postCode
+    }
+
 }
