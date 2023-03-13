@@ -14,12 +14,10 @@ class Figure (position: FieldPosition, val _player: Player) {
         this.position = defaultPosition;
     }
 
-    public fun move(steps: Int = -1, position: FieldPosition?){
+    fun move(position: FieldPosition){
+        // move animations
 
-    }
-
-    private fun moveSteps(steps: Int){
-
+        this.position = position;
     }
 
 }

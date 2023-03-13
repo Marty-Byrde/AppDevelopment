@@ -25,5 +25,17 @@ class Map (val players: ArrayList<Player>) {
         return null
     }
 
-    
+
+    /**
+     * Moves a figures to a given [FieldPosition] depending on the [figure]'s current postion and the [steps] it will make.
+     */
+    fun moveFigure(figure:Figure, steps: Int){
+        val destination = FieldPosition(figure.position.fieldIdentifier + steps)
+
+        val kicked = getFigureOnPosition(destination)
+        kicked?.resetPosition()
+
+        figure.move(destination)
+    }
+
 }
