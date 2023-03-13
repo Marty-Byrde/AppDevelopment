@@ -1,9 +1,16 @@
 package com.example.madn.classes
 
+enum class FieldType {
+    Yellow, Green, Red, Blue, Normal
+}
 
 class FieldPosition (val fieldIdentifier: Int) {
     var fieldName: String
         private set
+
+    var type: FieldType = FieldType.Normal
+        private set
+
 
     init {
         when(fieldIdentifier){
@@ -62,8 +69,16 @@ class FieldPosition (val fieldIdentifier: Int) {
             58 -> this.fieldName = "BH-${twoDigit()}"
 
             // normal positions
-            else -> this.fieldName = "FP-${twoDigit()}"
+            else -> {
+                this.fieldName = "FP-${twoDigit()}"
+                this.type = FieldType.Normal;
+            }
         }
+
+        if(this.fieldName.contains("Y")) this.type = FieldType.Yellow;
+        if(this.fieldName.contains("G")) this.type = FieldType.Green;
+        if(this.fieldName.contains("R")) this.type = FieldType.Red;
+        if(this.fieldName.contains("B")) this.type = FieldType.Blue;
     }
 
     /**
