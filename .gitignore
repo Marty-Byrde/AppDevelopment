@@ -1,3 +1,6 @@
 *.vs
 *.idea
 *.iml
+
+*.docx
+*.zip
