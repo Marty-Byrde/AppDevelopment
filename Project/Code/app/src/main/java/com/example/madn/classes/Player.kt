@@ -19,6 +19,6 @@ class Player (val alias: String, val color:PlayerColor) {
 
         // place figures on their starting positions
         var _incPos = this.initHomePosition
-        for(count in 4 downTo 0) figures.add(Figure(FieldPosition(_incPos++), color))
+        for(count in 4 downTo 0) figures.add(Figure(FieldPosition(_incPos++), this))
     }
 }
