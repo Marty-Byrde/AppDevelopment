@@ -4,7 +4,7 @@ class Map (val players: ArrayList<Player>) {
     val figures : ArrayList<Figure> = ArrayList()
 
     // the player who is selected to make his move
-    private var movingPlayer: Player = players[0]
+    private var playersTurn: Player = players[0]
 
 
 
@@ -45,14 +45,14 @@ class Map (val players: ArrayList<Player>) {
      * Sets a new player whose turn it is to make a move. When a [player] is provided, then this player can make his move. (e.g. when the dice threw 6)
      */
     fun nextPlayer(player: Player? = null){
-        if(player != null) movingPlayer = player;
+        if(player != null) playersTurn = player;
 
-        val indexOfPlayer = this.players.indexOf(this.movingPlayer)
+        val indexOfPlayer = this.players.indexOf(this.playersTurn)
 
         if(indexOfPlayer + 1 == this.players.size)
-            this.movingPlayer = this.players[0]
+            this.playersTurn = this.players[0]
         else
-            this.movingPlayer = this.players[indexOfPlayer + 1]
+            this.playersTurn = this.players[indexOfPlayer + 1]
 
     }
 
