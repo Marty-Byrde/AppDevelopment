@@ -1,5 +1,8 @@
 package com.example.madn.classes
 
+import android.util.Log
+import java.lang.reflect.Field
+
 class Map (val players: ArrayList<Player>) {
     val figures : ArrayList<Figure> = ArrayList()
 
@@ -33,7 +36,30 @@ class Map (val players: ArrayList<Player>) {
      * Moves a figures to a given [FieldPosition] depending on the [figure]'s current postion and the [steps] it will make.
      */
     fun moveFigure(figure:Figure, steps: Int){
-        val destination = FieldPosition(figure.position.fieldIdentifier + steps)
+        var destination = FieldPosition(figure.position.fieldIdentifier + steps)
+
+        // destination => inside other players housing spaces
+        if(!isLegitMove(figure, destination)){
+            // the destination would be inside the housing space of another player. Since this is not possible, the destination's position will be increased by the number of steps that the figure is inside the housing space.
+
+            var invalidSteps = 0
+            if(destination.fieldIdentifier in 55..58){
+                // theoreticall inside black housing space
+                invalidSteps = 58 - destination.fieldIdentifier
+            }else if(destination.fieldIdentifier in 69..72){
+                // theoreticall inside yellow housing space
+                invalidSteps = 72 - destination.fieldIdentifier
+            }else if(destination.fieldIdentifier in 27..30){
+                // theoreticall inside green housing space
+                invalidSteps = 30 - destination.fieldIdentifier
+            }else if(destination.fieldIdentifier in 41..44){
+                // theoreticall inside red housing space
+                invalidSteps = 44 - destination.fieldIdentifier
+            }
+
+            Log.d("Logic", "Increasing the destination by $invalidSteps, in order to leave the *theoretical* housing space of someone else")
+            destination = FieldPosition(destination.fieldIdentifier + invalidSteps)
+        }
 
         val kicked = getFigureOnPosition(destination)
         kicked?.resetPosition()
@@ -56,4 +82,18 @@ class Map (val players: ArrayList<Player>) {
 
     }
 
+
+    /**
+     * Returns a [Boolean] whether the [figure] is allowed to move to the given [destination].
+     */
+    private fun isLegitMove(figure: Figure, destination: FieldPosition) : Boolean {
+        if(destination.type == FieldType.Normal) return true;
+        else if(destination.type == FieldType.Yellow && figure._player.color == PlayerColor.Yellow) return true
+        else if(destination.type == FieldType.Green && figure._player.color == PlayerColor.Green) return true
+        else if(destination.type == FieldType.Red && figure._player.color == PlayerColor.Red) return true
+        else if(destination.type == FieldType.Blue && figure._player.color == PlayerColor.Blue) return true
+
+
+        return false;
+    }
 }
