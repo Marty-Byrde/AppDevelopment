@@ -4,3 +4,6 @@
 
 *.docx
 *.zip
+**/.gradle
+**/.idea
+**/*local.properties
