@@ -7,8 +7,17 @@ class GameHandler (map: Map) {
     /**
      * Returns the an [Int] for the number the dice threw.
      */
-    fun throwDice() : Int{
+    private fun throwDice() : Int{
         return (Math.random() * 6 + 1).toInt();
     }
 
+    fun makeMove(figure: Figure){
+        var dice = throwDice()
+        while(dice == 6){
+            map.moveFigure(figure, dice)
+            dice = throwDice()
+        }
+
+        map.moveFigure(figure, dice)
+    }
 }
