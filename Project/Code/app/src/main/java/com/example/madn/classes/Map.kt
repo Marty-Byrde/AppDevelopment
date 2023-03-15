@@ -84,6 +84,71 @@ class Map (val players: ArrayList<Player>) {
 
 
     /**
+     * Returns whether a [figure] can enter its home, depending on its [PlayerColor]. It can enter its home when it can enter the last [FieldPosition] with the given [steps].
+     */
+    fun isHomeable(figure: Figure, steps: Int) : Boolean{
+        val home1: FieldPosition;
+        val home2: FieldPosition;
+        val home3: FieldPosition;
+        val home4: FieldPosition;
+
+        when(figure._player.color){
+            PlayerColor.Blue -> {
+                home1 = FieldPosition(58)
+                home2 = FieldPosition(57)
+                home3 = FieldPosition(56)
+                home4 = FieldPosition(55)
+            }
+            PlayerColor.Red -> {
+                home1 = FieldPosition(44)
+                home2 = FieldPosition(43)
+                home3 = FieldPosition(42)
+                home4 = FieldPosition(41)
+            }
+            PlayerColor.Green -> {
+                home1 = FieldPosition(30)
+                home2 = FieldPosition(29)
+                home3 = FieldPosition(28)
+                home4 = FieldPosition(27)
+            }
+            PlayerColor.Yellow -> {
+                home1 = FieldPosition(72)
+                home2 = FieldPosition(71)
+                home3 = FieldPosition(70)
+                home4 = FieldPosition(69)
+            }
+        }
+
+        if(isPositionFree(home1)){
+            return hasEnoughSteps(figure, steps, home1)
+        }
+
+        if(isPositionFree(home2)){
+            return hasEnoughSteps(figure, steps, home2)
+        }
+
+        if(isPositionFree(home3)){
+            return hasEnoughSteps(figure, steps, home3)
+        }
+
+        if(isPositionFree(home4)){
+            return hasEnoughSteps(figure, steps, home4)
+        }
+
+        return false;
+    }
+
+
+    /**
+     * Returns a [Boolean] whether the [steps] are enough in order to reach a given [destination] from the [figure]'s [FieldPosition]
+     */
+    private fun hasEnoughSteps(figure: Figure, steps: Int, destination: FieldPosition) : Boolean{
+        if(figure.position.fieldIdentifier + steps == destination.fieldIdentifier) return true;
+
+        return false
+    }
+
+    /**
      * Returns a [Boolean] whether the [figure] is allowed to move to the given [destination].
      */
     private fun isLegitMove(figure: Figure, destination: FieldPosition) : Boolean {
