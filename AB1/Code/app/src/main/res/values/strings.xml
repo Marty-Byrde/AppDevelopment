@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Code</string>
+    <string name="title">Beispiel - Titel</string>
+    <string name="message">Hallo Welt!</string>
 </resources>
