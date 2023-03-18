@@ -11,13 +11,14 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     val locale_german: Locale = Locale("de")
-    val locale_english: Locale = Locale("en")
+    val locale_english: Locale = Locale("en-US")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val txtText: TextView = findViewById(R.id.txtText)
+        val hint: TextView = findViewById(R.id.txtChoose)
         val checkGerman: CheckBox = findViewById(R.id.checkGerman)
         val checkEnglish: CheckBox = findViewById(R.id.checkEnglish)
 
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         txtText.setText(R.string.message)
+        hint.setText(R.string.choose)
     }
 
     private fun updateLocaleSettings(locale: Locale) {
