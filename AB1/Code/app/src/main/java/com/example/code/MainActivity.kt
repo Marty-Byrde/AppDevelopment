@@ -1,14 +1,12 @@
 package com.example.code
 
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.CheckBox
-import android.widget.CompoundButton
 import android.widget.TextView
-import java.util.Locale
+import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,27 +17,43 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val txtText : TextView = findViewById(R.id.txtText)
+        val txtText: TextView = findViewById(R.id.txtText)
         val checkGerman: CheckBox = findViewById(R.id.checkGerman)
         val checkEnglish: CheckBox = findViewById(R.id.checkEnglish)
 
+        // Select current language
+        checkGerman.isChecked = applicationContext.resources.configuration.locale.toLanguageTag() == "de"
+        checkEnglish.isChecked = applicationContext.resources.configuration.locale.toLanguageTag() == "en-US"
 
-        updateLanguage()
+
+        checkGerman.setOnCheckedChangeListener { _, isChecked ->
+            checkEnglish.isChecked = !isChecked;
+
+            if (isChecked) {
+                updateLocaleSettings(locale_german)
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+        }
+
+        checkEnglish.setOnCheckedChangeListener { _, isChecked ->
+            checkGerman.isChecked = !isChecked;
+
+            if (isChecked) {
+                updateLocaleSettings(locale_english)
+                startActivity(Intent(this, MainActivity::class.java))
+            }
+        }
+
         txtText.setText(R.string.message)
     }
 
-    fun updateLanguage(){
-        val currentLocale = applicationContext.resources.configuration
-        Log.d("APD", currentLocale.toString())
-
-        val config = Configuration()
-
+    private fun updateLocaleSettings(locale: Locale) {
+        val config = applicationContext.resources.configuration
+        config.setLocale(locale)
     }
 
 
-
-
-    fun LogLevels(){
+    fun LogLevels() {
         val tag = "AppD"
 
         Log.d(tag, "Thats a debug message!")

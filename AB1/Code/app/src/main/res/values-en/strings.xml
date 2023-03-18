@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Code</string>
-    <string name="title">Test Title</string>
+    <string name="title">Title English</string>
     <string name="message">Hello World!</string>
 </resources>
