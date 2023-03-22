@@ -3,6 +3,7 @@ package com.example.code
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -17,10 +18,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        languageUpdateHandling()
+    }
+
+
+    private fun languageUpdateHandling() {
         val txtText: TextView = findViewById(R.id.txtText)
         val hint: TextView = findViewById(R.id.txtChoose)
         val checkGerman: CheckBox = findViewById(R.id.checkGerman)
         val checkEnglish: CheckBox = findViewById(R.id.checkEnglish)
+
+        // Display views.
+        txtText.visibility = View.VISIBLE;
+        hint.visibility = View.VISIBLE;
+        checkGerman.visibility = View.VISIBLE;
+        checkEnglish.visibility = View.VISIBLE;
+
 
         // Select current language
         checkGerman.isChecked = applicationContext.resources.configuration.locale.toLanguageTag() == "de"
@@ -48,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         txtText.setText(R.string.message)
         hint.setText(R.string.choose)
     }
+
 
     /**
      * This function updates the [Locale] configuration of the app by setting it to the given [locale].
