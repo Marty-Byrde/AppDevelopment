@@ -49,13 +49,19 @@ class MainActivity : AppCompatActivity() {
         hint.setText(R.string.choose)
     }
 
+    /**
+     * This function updates the [Locale] configuration of the app by setting it to the given [locale].
+     */
     private fun updateLocaleSettings(locale: Locale) {
         val config = applicationContext.resources.configuration
         config.setLocale(locale)
     }
 
 
-    fun LogLevels() {
+    /**
+     * This function logs different messages to Logcat using its security levels.
+     */
+    fun logLevelDemo() {
         val tag = "AppD"
 
         Log.d(tag, "Thats a debug message!")
