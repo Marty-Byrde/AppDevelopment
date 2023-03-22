@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,41 +16,53 @@ class MainActivity : AppCompatActivity() {
     val locale_english: Locale = Locale("en-US")
 
     private val app_lifecycle = true;
+    private val activityIdentifier = "MainLifecycle -"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val btnSwitch: Button = findViewById(R.id.btnSwitch)
+        btnSwitch.visibility = if (app_lifecycle) View.VISIBLE else View.INVISIBLE
+
+        if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onRestart callback is called!")
+
+
+
+        btnSwitch.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, SecondaryLifeCycle::class.java))
+        })
+
         languageUpdateHandling()
     }
 
     override fun onStart() {
-        if (app_lifecycle) Log.d("Lifecycle", "onStart callback is called!")
+        if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onStart callback is called!")
         super.onStart()
     }
 
     override fun onResume() {
-        if (app_lifecycle) Log.d("Lifecycle", "onResume callback is called!")
+        if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier  onResume callback is called!")
         super.onResume()
     }
 
     override fun onPause() {
-        if (app_lifecycle) Log.d("Lifecycle", "onPause callback is called!")
+        if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onPause callback is called!")
         super.onPause()
     }
 
     override fun onStop() {
-        if (app_lifecycle) Log.d("Lifecycle", "onStop callback is called!")
+        if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onStop callback is called!")
         super.onStop()
     }
 
     override fun onDestroy() {
-        if (app_lifecycle) Log.d("Lifecycle", "onDestroy callback is called!")
+        if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onDestroy callback is called!")
         super.onDestroy()
     }
 
     override fun onRestart() {
-        if (app_lifecycle) Log.d("Lifecycle", "onRestart callback is called!")
+        if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onRestart callback is called!")
         super.onRestart()
     }
 
