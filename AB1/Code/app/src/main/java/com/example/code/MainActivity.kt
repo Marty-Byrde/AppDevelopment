@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     val locale_german: Locale = Locale("de")
     val locale_english: Locale = Locale("en-US")
 
+    private val app_lifecycle = true;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,6 +23,35 @@ class MainActivity : AppCompatActivity() {
         languageUpdateHandling()
     }
 
+    override fun onStart() {
+        if (app_lifecycle) Log.d("Lifecycle", "onStart callback is called!")
+        super.onStart()
+    }
+
+    override fun onResume() {
+        if (app_lifecycle) Log.d("Lifecycle", "onResume callback is called!")
+        super.onResume()
+    }
+
+    override fun onPause() {
+        if (app_lifecycle) Log.d("Lifecycle", "onPause callback is called!")
+        super.onPause()
+    }
+
+    override fun onStop() {
+        if (app_lifecycle) Log.d("Lifecycle", "onStop callback is called!")
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        if (app_lifecycle) Log.d("Lifecycle", "onDestroy callback is called!")
+        super.onDestroy()
+    }
+
+    override fun onRestart() {
+        if (app_lifecycle) Log.d("Lifecycle", "onRestart callback is called!")
+        super.onRestart()
+    }
 
     private fun languageUpdateHandling() {
         val txtText: TextView = findViewById(R.id.txtText)
