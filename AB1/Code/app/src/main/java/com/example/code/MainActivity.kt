@@ -36,31 +36,49 @@ class MainActivity : AppCompatActivity() {
         languageUpdateHandling()
     }
 
+    /**
+     * This event is called when the activity becomes visible, but without being in the foreground. (Thus, the user does not yet see it)
+     */
     override fun onStart() {
         if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onStart callback is called!")
         super.onStart()
     }
 
+    /**
+     * This event is triggered when the activity is about to get to the forground, thus can be seen and interacted with by the user.
+     */
     override fun onResume() {
         if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier  onResume callback is called!")
         super.onResume()
     }
 
+    /**
+     * This event is triggered when the app is no longer in the foreground, but still visible. (thus, it is in the background and an other activity is in the foreground
+     */
     override fun onPause() {
         if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onPause callback is called!")
         super.onPause()
     }
 
+    /**
+     * This event is called when the app is no longer visible, which occours either when an other activity has been launched or when the app is being minizmied.
+     */
     override fun onStop() {
         if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onStop callback is called!")
         super.onStop()
     }
 
+    /**
+     * This event is called when the app is terminated, thus closed, or closed by the system in order to free up memory.
+     */
     override fun onDestroy() {
         if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onDestroy callback is called!")
         super.onDestroy()
     }
 
+    /**
+     * This event is called once an activity has been started, then left and is then "reopened" again. For instance, when pressing the home button or when switching between activities.
+     */
     override fun onRestart() {
         if (app_lifecycle) Log.d("Lifecycle", "$activityIdentifier onRestart callback is called!")
         super.onRestart()
