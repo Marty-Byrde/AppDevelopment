@@ -47,6 +47,30 @@ class SurfaceActivity : AppCompatActivity() {
 
             Log.d("$TAG-Start", "Generated Circle at: $circle")
         })
+
+        surfaceView.setOnTouchListener { _, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                val x = event.x
+                val y = event.y
+                val radius = 50F
+
+                val xDistance = abs(x-circle.x)
+                val yDistance = abs(y-circle.y)
+
+                if(xDistance <= radius && yDistance <= radius) {
+                    Toast.makeText(this, "Very well done, you caught that one! Lets go again!", Toast.LENGTH_SHORT).show()
+                    btn.performClick()
+                }else{
+                    Log.d("$TAG-SurfaceClick", "Difference: x=$xDistance, y=$yDistance")
+                }
+
+
+
+                surfaceView.performClick();
+                return@setOnTouchListener true
+            }
+            false
+        }
     }
 
     fun drawCircle(surface: SurfaceView?) {
