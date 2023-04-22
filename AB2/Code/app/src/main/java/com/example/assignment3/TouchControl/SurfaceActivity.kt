@@ -30,9 +30,12 @@ class SurfaceActivity : AppCompatActivity() {
         Log.d(TAG, this.localClassName + " is now running!")
 
         val surfaceView = findViewById<SurfaceView>(R.id.surfaceView)
+        surfaceView.visibility = View.INVISIBLE;
+
         val btn = findViewById<Button>(R.id.btnStart)
 
         btn.setOnClickListener(View.OnClickListener {
+            surfaceView.visibility = View.VISIBLE;
 
             val minX = 2 * radius
             val maxX = surfaceView.width - 2 * radius - minX;
