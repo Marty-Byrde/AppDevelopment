@@ -20,6 +20,8 @@ import kotlin.math.abs
 
 class SurfaceActivity : AppCompatActivity() {
     private val TAG = "AppDev"
+    private var circle = PointF(0f, 0f)
+    private var radius = 50f
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +29,30 @@ class SurfaceActivity : AppCompatActivity() {
         setContentView(R.layout.activity_surface)
         Log.d(TAG, this.localClassName + " is now running!")
 
+        val surfaceView = findViewById<SurfaceView>(R.id.surfaceView)
+        val btn = findViewById<Button>(R.id.btnStart)
 
+        btn.setOnClickListener(View.OnClickListener {
+
+            val minX = 2 * radius
+            val maxX = surfaceView.width - 2 * radius - minX;
+
+            val minY = 2 * radius
+            val maxY = surfaceView.height - 2 * radius - minY;
+
+            circle.x = Math.random().toFloat() * maxX + minX
+            circle.y = Math.random().toFloat() * maxY + minY
+
+            drawCircle(surfaceView)
+
+            Log.d("$TAG-Start", "Generated Circle at: $circle")
+        })
     }
 
+    fun drawCircle(surface: SurfaceView?) {
+        val canvas: Canvas? = surface?.holder?.lockCanvas()
+        canvas?.drawColor(Color.WHITE)
+        canvas?.drawCircle(circle.x, circle.y, radius, Paint(Paint.ANTI_ALIAS_FLAG))
+        surface?.holder?.unlockCanvasAndPost(canvas)
+    }
 }
