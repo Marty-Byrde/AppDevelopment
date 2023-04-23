@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Fragments.FragmentActivity">
+
+    <Button
+            android:text="Open F1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/btnStartF1"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="64dp" android:layout_marginStart="96dp"/>
+    <Button
+            android:text="Open F2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/btnStartF2"
+            app:layout_constraintStart_toEndOf="@+id/btnStartF1" app:layout_constraintTop_toTopOf="@+id/btnStartF1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.427"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="413dp"
+            android:layout_height="501dp" tools:layout_editor_absoluteY="229dp" tools:layout_editor_absoluteX="-2dp"
+            android:id="@+id/layoutLinear">
+    </LinearLayout>
+    <Button
+            android:text="Send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/btnCommunicateFragment"
+            app:layout_constraintTop_toBottomOf="@+id/btnStartF1"
+            app:layout_constraintStart_toStartOf="@+id/btnStartF1" app:layout_constraintEnd_toEndOf="@+id/btnStartF2"
+            android:layout_marginTop="36dp" app:layout_constraintHorizontal_bias="0.489"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtMessage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:textSize="20sp" android:textAlignment="center"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
