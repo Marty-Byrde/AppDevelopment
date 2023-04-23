@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.assignment3.Services.ServiceInterface
 import com.example.assignment3.TouchControl.SurfaceActivity
 
 
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
             var intent = Intent(applicationContext, MainActivity::class.java);
             when(task){
+                3 -> intent = Intent(applicationContext, ServiceInterface::class.java)
                 4 -> intent = Intent(applicationContext, SurfaceActivity::class.java)
             }
 
@@ -44,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         task4.setOnClickListener(clickListener)
 
 
-        task4.performClick()
+        task3.performClick()
     }
 
 
