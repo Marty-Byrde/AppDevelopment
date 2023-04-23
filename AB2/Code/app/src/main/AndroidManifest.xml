@@ -12,12 +12,15 @@
             android:theme="@style/Theme.Assignment3"
             tools:targetApi="31">
         <activity
+                android:name=".Fragments.FragmentActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".Services.ServiceInterface"
                 android:exported="false"/>
-        <service
-                android:name=".Services.AudioService"
-        >
+
+        <service android:name=".Services.AudioService">
         </service>
+
         <activity
                 android:name=".TouchControl.SurfaceActivity"
                 android:exported="false"/>
