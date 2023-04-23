@@ -15,6 +15,14 @@ class ServiceInterface : AppCompatActivity() {
 
         val btnStart = findViewById<Button>(R.id.btnStartService)
         val btnStop = findViewById<Button>(R.id.btnStopService)
-        
+
+        btnStart.setOnClickListener {
+            startService(Intent(this, AudioService::class.java))
+        }
+
+        btnStop.setOnClickListener {
+            stopService(Intent(this, AudioService::class.java))
+        }
+
     }
 }
