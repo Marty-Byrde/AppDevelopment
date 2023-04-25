@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assignment3.Fragments.FragmentActivity
+import com.example.assignment3.RotationIntents.FirstActivity
 import com.example.assignment3.Services.ServiceInterface
 import com.example.assignment3.TouchControl.SurfaceActivity
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
             var intent = Intent(applicationContext, MainActivity::class.java);
             when(task){
+                1 -> intent = Intent(applicationContext, FirstActivity::class.java)
                 2 -> intent = Intent(applicationContext, FragmentActivity::class.java)
                 3 -> intent = Intent(applicationContext, ServiceInterface::class.java)
                 4 -> intent = Intent(applicationContext, SurfaceActivity::class.java)
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         task4.setOnClickListener(clickListener)
 
 
-        task2.performClick()
+//        task2.performClick()
     }
 
 
