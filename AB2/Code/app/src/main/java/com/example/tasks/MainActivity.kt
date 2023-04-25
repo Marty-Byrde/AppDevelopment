@@ -1,4 +1,4 @@
-package com.example.assignment3
+package com.example.tasks
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.assignment3.Fragments.FragmentActivity
-import com.example.assignment3.RotationIntents.FirstActivity
-import com.example.assignment3.Services.ServiceInterface
-import com.example.assignment3.TouchControl.SurfaceActivity
+import com.example.tasks.Fragments.FragmentActivity
+import com.example.tasks.RotationIntents.FirstActivity
+import com.example.tasks.Services.ServiceInterface
+import com.example.tasks.TouchControl.SurfaceActivity
 
 
 class MainActivity : AppCompatActivity() {

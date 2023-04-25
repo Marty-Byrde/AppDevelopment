@@ -1,4 +1,4 @@
-package com.example.assignment3.Fragments
+package com.example.tasks.Fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.assignment3.R
+import com.example.tasks.R
 
 class SecondFragment : Fragment(R.layout.second_fragment) {
     var parent : FragmentActivity? = null;

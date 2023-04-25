@@ -1,4 +1,4 @@
-package com.example.assignment3.Fragments
+package com.example.tasks.Fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.commit
-import com.example.assignment3.R
+import com.example.tasks.R
 
 class FragmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

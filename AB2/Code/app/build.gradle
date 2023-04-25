@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.assignment3'
+    namespace 'com.example.tasks'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.assignment3"
+        applicationId "com.example.tasks"
         minSdk 25
         targetSdk 33
         versionCode 1

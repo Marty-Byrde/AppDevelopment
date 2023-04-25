@@ -1,4 +1,4 @@
-package com.example.assignment3.RotationIntents
+package com.example.tasks.RotationIntents
 
 import android.content.Intent
 import android.net.Uri
@@ -6,7 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import com.example.assignment3.R
+import com.example.tasks.R
+
 
 class DisplayerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

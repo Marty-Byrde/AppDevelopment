@@ -1,12 +1,11 @@
-package com.example.assignment3.RotationIntents
+package com.example.tasks.RotationIntents
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import com.example.assignment3.R
+import com.example.tasks.R
 
 class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

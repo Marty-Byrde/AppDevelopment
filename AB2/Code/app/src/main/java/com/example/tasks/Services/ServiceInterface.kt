@@ -1,11 +1,10 @@
-package com.example.assignment3.Services
+package com.example.tasks.Services
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import com.example.assignment3.R
+import com.example.tasks.R
 
 
 class ServiceInterface : AppCompatActivity() {
