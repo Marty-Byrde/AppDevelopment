@@ -15,7 +15,7 @@ class FirstActivity : AppCompatActivity() {
         // requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
 
         val btnSearch = findViewById<Button>(R.id.btnSearch)
-        val txtField = findViewById<EditText>(R.id.txtInput)
+        val txtField= findViewById<EditText>(R.id.txtInput)
 
         btnSearch.setOnClickListener{
             val intent = Intent(this, DisplayerActivity::class.java)
