@@ -1,4 +1,4 @@
-package com.example.tasks
+package com.example.assignment3
 
 import org.junit.Test
 

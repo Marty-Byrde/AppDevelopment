@@ -1,11 +1,11 @@
-package com.example.tasks.Services
+package com.example.assignment3.Services
 
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.util.Log
-import com.example.tasks.R
+import com.example.assignment3.R
 
 class AudioService : Service() {
     private lateinit var player: MediaPlayer;
