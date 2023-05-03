@@ -49,8 +49,5 @@ class PersonBrowserActivity : AppCompatActivity() {
 
 
         webView.webViewClient = webViewClient
-
-
-
     }
 }
