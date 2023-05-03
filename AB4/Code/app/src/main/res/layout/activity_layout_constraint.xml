@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:gravity="center">
+
+    <!-- Row 1 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraint2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image1_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture1"
+            app:layout_constraintBottom_toTopOf="@+id/text1_1"
+            app:layout_constraintEnd_toStartOf="@+id/image1_2"
+            app:layout_constraintStart_toStartOf="@id/constraint1"
+            app:layout_constraintTop_toTopOf="@id/constraint1" />
+
+        <ImageView
+            android:id="@+id/image1_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture2"
+            app:layout_constraintBottom_toTopOf="@+id/text1_2"
+            app:layout_constraintEnd_toStartOf="@+id/image1_3"
+            app:layout_constraintStart_toEndOf="@+id/image1_1"
+            app:layout_constraintTop_toTopOf="@id/constraint1" />
+
+        <ImageView
+            android:id="@+id/image1_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture3"
+            app:layout_constraintBottom_toTopOf="@+id/text1_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image1_2"
+            app:layout_constraintTop_toTopOf="@id/constraint1" />
+
+        <TextView
+            android:id="@+id/text1_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text1_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image1_1" />
+
+        <TextView
+            android:id="@+id/text1_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text1_3"
+            app:layout_constraintStart_toEndOf="@+id/text1_1"
+            app:layout_constraintTop_toBottomOf="@+id/image1_2" />
+
+        <TextView
+            android:id="@+id/text1_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text1_2"
+            app:layout_constraintTop_toBottomOf="@+id/image1_3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- Row 2 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/constraint3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint1">
+
+        <ImageView
+            android:id="@+id/image2_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture4"
+            app:layout_constraintBottom_toTopOf="@+id/text2_1"
+            app:layout_constraintEnd_toStartOf="@+id/image2_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraint2" />
+
+        <ImageView
+            android:id="@+id/image2_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture5"
+            app:layout_constraintBottom_toTopOf="@+id/text2_2"
+            app:layout_constraintEnd_toStartOf="@+id/image2_3"
+            app:layout_constraintStart_toEndOf="@+id/image2_1"
+            app:layout_constraintTop_toTopOf="@+id/constraint2" />
+
+        <ImageView
+            android:id="@+id/image2_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture6"
+            app:layout_constraintBottom_toTopOf="@+id/text2_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image2_2"
+            app:layout_constraintTop_toTopOf="@+id/constraint2" />
+
+        <TextView
+            android:id="@+id/text2_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text2_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image2_1" />
+
+        <TextView
+            android:id="@+id/text2_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text2_3"
+            app:layout_constraintStart_toEndOf="@+id/text2_1"
+            app:layout_constraintTop_toBottomOf="@+id/image2_2" />
+
+        <TextView
+            android:id="@+id/text2_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text2_2"
+            app:layout_constraintTop_toBottomOf="@+id/image2_3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Row 3 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint2">
+
+        <ImageView
+            android:id="@+id/image3_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture7"
+            app:layout_constraintBottom_toTopOf="@+id/text3_1"
+            app:layout_constraintEnd_toStartOf="@+id/image3_2"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraint3" />
+
+        <ImageView
+            android:id="@+id/image3_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture8"
+            app:layout_constraintBottom_toTopOf="@+id/text3_2"
+            app:layout_constraintEnd_toStartOf="@+id/image3_3"
+            app:layout_constraintStart_toEndOf="@+id/image3_1"
+            app:layout_constraintTop_toTopOf="@+id/constraint3" />
+
+        <ImageView
+            android:id="@+id/image3_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/picture9"
+            app:layout_constraintBottom_toTopOf="@+id/text3_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image3_2"
+            app:layout_constraintTop_toTopOf="@+id/constraint3" />
+
+        <TextView
+            android:id="@+id/text3_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text3_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image3_1" />
+
+        <TextView
+            android:id="@+id/text3_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text3_3"
+            app:layout_constraintStart_toEndOf="@+id/text3_1"
+            app:layout_constraintTop_toBottomOf="@+id/image3_2" />
+
+        <TextView
+            android:id="@+id/text3_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Picture 9"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/text3_2"
+            app:layout_constraintTop_toBottomOf="@+id/image3_3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
