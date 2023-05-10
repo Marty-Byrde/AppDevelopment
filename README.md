@@ -8,4 +8,4 @@ The manadatory project of this course can be found here: [Campus-Wrapper](https:
 
 ## Authors
 
-- [@octokatherine](https://www.github.com/octokatherine)
+- [@Marty-Byrde](https://github.com/Marty-Byrde)
