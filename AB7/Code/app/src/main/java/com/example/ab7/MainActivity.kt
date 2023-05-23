@@ -10,12 +10,9 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import org.json.JSONObject
 import java.io.*
-import java.net.URL
-import java.nio.charset.StandardCharsets.UTF_8
-import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -40,18 +37,17 @@ class MainActivity : AppCompatActivity() {
         txtRate1.visibility = View.INVISIBLE
         txtRate2.visibility = View.INVISIBLE
 
+        val currencyOptions = EnumSet.allOf(Currencies::class.java).toArray()
+        val options = ArrayList<String>()
+        for(option in currencyOptions){
+            for(convert in currencyOptions){
+                if(option == convert) continue;
+                options.add("$option to $convert")
+            }
+        }
 
 
-        val href = "https://api.freecurrencyapi.com/v1/latest?base_currency=EUR&apikey=${ENV.API_KEY}&currencies="
-        val selectionOptions: Array<String> = listOf(
-            "EUR to USD",
-            "EUR to JPY",
-            "EUR to CZK",
-            "EUR to RUB",
-            "EUR to AUD",
-            "EUR to CHF",
-            "EUR to DKK",
-        ).toTypedArray()
+        val selectionOptions: Array<String> = options.toTypedArray()
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, selectionOptions)
         spinner.adapter = adapter
 
@@ -74,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                         data.getString(currencies[1])
                     )
 
-                    txtResult.text = String.format("%.2f %s", txtInput.text.toString().toDouble() * data.getString(currencies[1]).toDouble(), currencies[1])
+                    txtResult.text = String.format("%,.2f %s", txtInput.text.toString().toDouble() * data.getString(currencies[1]).toDouble(), currencies[1])
                 }
             }.start()
         }
