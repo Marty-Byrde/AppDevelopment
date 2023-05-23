@@ -16,7 +16,7 @@ import java.util.*
 
 class API {
     @SuppressLint("SimpleDateFormat")
-    fun getData(activity: Activity) : JSONObject{
+    fun getData(activity: Activity, currencies: Array<String>) : JSONObject{
         val formatter = SimpleDateFormat("dd_MM_yyyy")
         val fileName = "store_data_${formatter.format(Date())}.json"
         val stringBuffer = StringBuffer()
@@ -32,15 +32,20 @@ class API {
             }
             fileInputStream.close()
             Log.d("Fetch-JSON", "Loaded locally stored data")
-            return JSONObject(stringBuffer.toString())
+
+            val obj = JSONObject(stringBuffer.toString())
+            val rates = obj.getJSONObject("data")
+            if(!rates.has(currencies[0])) return fetch(activity, currencies)
+            if(!rates.has(currencies[1])) return fetch(activity, currencies)
+            return obj.getJSONObject("data")
         } catch (e: Exception) {
-            return fetch(activity)
+            return fetch(activity, currencies)
         }
     }
 
     @SuppressLint("SimpleDateFormat")
-    private fun fetch(activity: Activity) : JSONObject {
-        val href = "https://api.freecurrencyapi.com/v1/latest?apikey=${ENV.API_KEY}&currencies=EUR%2CUSD"
+    private fun fetch(activity: Activity, currencies: Array<String>) : JSONObject {
+        val href = "https://api.freecurrencyapi.com/v1/latest?base_currency=${currencies[0]}&apikey=${ENV.API_KEY}&currencies=${currencies.joinToString("%2C")}"
         val url = URL(href)
         val builder = StringBuilder()
         BufferedReader(InputStreamReader(url.openStream(), StandardCharsets.UTF_8)).use { reader ->
@@ -67,6 +72,6 @@ class API {
             e.printStackTrace()
         }
 
-        return json;
+        return json.getJSONObject("data");
     }
 }
