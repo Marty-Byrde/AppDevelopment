@@ -108,6 +108,11 @@ class API {
         return db.insert(DBHandler.DBEntry.table_name, null, values)
     }
 
+    /**
+     * This function checks whether a [JSONObject], that matches the requested [currencies], which has been inserted today, is in the database.
+     *
+     * @return A [JSONObject] that matches the requested criteria. In case there is no match, a fetch request using the [API] will be initiated and its conents are stored and returned.
+     */
     private fun getDBData(activity: Activity, currencies: Array<String>) : JSONObject{
         val handler = DBHandler(activity);
         val db = handler.writableDatabase
