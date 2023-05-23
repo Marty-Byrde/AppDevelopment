@@ -2,7 +2,6 @@ package com.example.ab7
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -16,6 +15,8 @@ import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
+    public final val local_storage = true
+
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
