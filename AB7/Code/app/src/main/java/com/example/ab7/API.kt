@@ -22,6 +22,14 @@ import java.util.*
 class API {
     private val formatter = SimpleDateFormat("dd_MM_yyyy")
 
+    fun getData(activity: Activity, currencies: Array<String>) : JSONObject{
+        val main = activity as MainActivity
+
+        if(main.local_storage) return getLocalData(activity, currencies)
+
+        return getDBData(activity, currencies)
+    }
+
     @SuppressLint("SimpleDateFormat")
     fun getLocalData(activity: Activity, currencies: Array<String>) : JSONObject{
         val fileName = "store_data_${formatter.format(Date())}.json"
