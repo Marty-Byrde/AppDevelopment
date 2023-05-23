@@ -2,8 +2,12 @@ package com.example.ab7
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ContentValues
+import android.database.Cursor
+import android.provider.BaseColumns
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ab7.database.DBHandler
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.FileInputStream
@@ -14,10 +18,12 @@ import java.nio.charset.StandardCharsets
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class API {
+    private val formatter = SimpleDateFormat("dd_MM_yyyy")
+
     @SuppressLint("SimpleDateFormat")
     fun getData(activity: Activity, currencies: Array<String>) : JSONObject{
-        val formatter = SimpleDateFormat("dd_MM_yyyy")
         val fileName = "store_data_${formatter.format(Date())}.json"
         val stringBuffer = StringBuffer()
         val fileInputStream: FileInputStream
@@ -60,7 +66,6 @@ class API {
         val json = JSONObject(jsonStr)
         Log.d("Fetch-JSON", "$json")
 
-        val formatter = SimpleDateFormat("dd_MM_yyyy")
         val fileName = "store_data_${formatter.format(Date())}.json"
         val outputStream: FileOutputStream
         try {
