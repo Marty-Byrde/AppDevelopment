@@ -49,6 +49,19 @@ class API {
         }
     }
 
+    fun storeLocal(activity: Activity, obj: JSONObject){
+        val fileName = "store_data_${formatter.format(Date())}.json"
+        val outputStream: FileOutputStream
+        try {
+            outputStream = activity.openFileOutput(fileName, AppCompatActivity.MODE_PRIVATE)
+            outputStream.write(obj.toString().toByteArray())
+            outputStream.close()
+            Log.d("Fetch-JSON", "Saved api response!")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     @SuppressLint("SimpleDateFormat")
     private fun fetch(activity: Activity, currencies: Array<String>) : JSONObject {
         val href = "https://api.freecurrencyapi.com/v1/latest?base_currency=${currencies[0]}&apikey=${ENV.API_KEY}&currencies=${currencies.joinToString("%2C")}"
@@ -66,16 +79,7 @@ class API {
         val json = JSONObject(jsonStr)
         Log.d("Fetch-JSON", "$json")
 
-        val fileName = "store_data_${formatter.format(Date())}.json"
-        val outputStream: FileOutputStream
-        try {
-            outputStream = activity.openFileOutput(fileName, AppCompatActivity.MODE_PRIVATE)
-            outputStream.write(jsonStr.toByteArray())
-            outputStream.close()
-            Log.d("Fetch-JSON", "Saved api response!")
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        
 
         return json.getJSONObject("data");
     }
