@@ -13,6 +13,44 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.419"/>
+    <TextView
+            android:text="Value:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="60dp" android:layout_marginStart="32dp" android:textSize="24sp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/txtInput"
+            app:layout_constraintStart_toEndOf="@+id/textView" app:layout_constraintTop_toTopOf="@+id/textView"
+            android:layout_marginStart="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toBottomOf="@+id/textView"
+            android:layout_marginEnd="20dp"/>
+    <Button
+            android:text="Convert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/btnConvert"
+            app:layout_constraintTop_toBottomOf="@+id/txtInput"
+            android:layout_marginTop="76dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.498"/>
+    <TextView
+            android:text="Result:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="@+id/textView" android:layout_marginTop="264dp"
+            app:layout_constraintHorizontal_bias="0.82" android:textSize="20sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="278dp"
+            android:layout_height="187dp" android:id="@+id/txtResult"
+            app:layout_constraintStart_toEndOf="@+id/textView2" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView2" android:textSize="20sp"
+            app:layout_constraintHorizontal_bias="0.404"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
