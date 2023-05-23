@@ -79,4 +79,18 @@ class API {
 
         return json.getJSONObject("data");
     }
+
+
+    @SuppressLint("Recycle")
+    fun insertFactors(activity: Activity, obj: JSONObject) : Long{
+        val handler = DBHandler(activity);
+        val db = handler.writableDatabase
+
+        val values = ContentValues().apply {
+            put(DBHandler.DBEntry.dateColumnTitle, formatter.format(Date()))
+            put(DBHandler.DBEntry.jsonColumnTitle, obj.toString())
+        }
+        Log.d("Fetch-JSON-DB", "Saving factors in the database!")
+        return db.insert(DBHandler.DBEntry.table_name, null, values)
+    }
 }
