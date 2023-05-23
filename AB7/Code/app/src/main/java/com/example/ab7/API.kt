@@ -30,6 +30,12 @@ class API {
         return getDBData(activity, currencies)
     }
 
+    /**
+     * This function returns a [JSONObject] that matches the requested [currencies], which has been stored.
+     * If no [JSONObject] is found a new fetch-request is made using the api. Its content is then properly stored and returned.
+     *
+     * @return A [JSONObject] that has been either stored locally or fetched using the api.
+     */
     @SuppressLint("SimpleDateFormat")
     private fun getLocalData(activity: Activity, currencies: Array<String>) : JSONObject{
         val fileName = "store_data_${formatter.format(Date())}.json"
