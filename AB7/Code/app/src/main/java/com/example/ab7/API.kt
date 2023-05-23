@@ -108,7 +108,12 @@ class API {
             if(jsonStr.toString().isBlank()) break;
 
             Log.d("Fetch-JSON-DB", "I have retrieved the json-factors from the database!")
-            return JSONObject(jsonStr)
+            val json = JSONObject(jsonStr)
+
+            if(!json.has(currencies[0])) break;
+            if(!json.has(currencies[1])) break;
+            
+            return json
         }
 
         return fetch(activity, currencies)
