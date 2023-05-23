@@ -15,7 +15,7 @@ import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
-    public final val local_storage = true
+    val local_storage = true
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
