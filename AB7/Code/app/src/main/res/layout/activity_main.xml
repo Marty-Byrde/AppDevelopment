@@ -7,14 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.419"/>
-    <TextView
             android:text="Value:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView"
@@ -36,21 +28,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/btnConvert"
             app:layout_constraintTop_toBottomOf="@+id/txtInput"
-            android:layout_marginTop="76dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="84dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.498"/>
     <TextView
             android:text="Result:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView2"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="@+id/textView" android:layout_marginTop="264dp"
-            app:layout_constraintHorizontal_bias="0.82" android:textSize="20sp"/>
+            app:layout_constraintStart_toStartOf="@+id/textView" app:layout_constraintTop_toBottomOf="@+id/btnConvert"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="1.0" android:textSize="20sp" android:layout_marginTop="184dp"/>
     <TextView
             android:text="TextView"
-            android:layout_width="278dp"
-            android:layout_height="187dp" android:id="@+id/txtResult"
+            android:layout_width="273dp"
+            android:layout_height="26dp" android:id="@+id/txtResult"
             app:layout_constraintStart_toEndOf="@+id/textView2" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView2" android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.404"/>
+            app:layout_constraintHorizontal_bias="0.404" android:textAlignment="center"/>
+    <Spinner
+            android:layout_width="335dp"
+            android:layout_height="22dp" android:id="@+id/spinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/txtInput"
+            app:layout_constraintBottom_toTopOf="@+id/btnConvert"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/lblRate1"
+            app:layout_constraintTop_toBottomOf="@+id/btnConvert" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="76dp" android:layout_marginStart="92dp" android:textSize="16sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/lblRate2"
+            app:layout_constraintStart_toEndOf="@+id/lblRate1" app:layout_constraintTop_toTopOf="@+id/lblRate1"
+            app:layout_constraintEnd_toEndOf="parent" android:textSize="16sp"/>
+    <TextView
+            android:text="Rates:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView6"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@+id/btnConvert" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="24dp"
+            app:layout_constraintHorizontal_bias="0.498"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtRate1"
+            app:layout_constraintTop_toTopOf="@+id/txtRate2" app:layout_constraintEnd_toEndOf="@+id/lblRate1"
+            app:layout_constraintStart_toStartOf="@+id/lblRate1" android:textSize="16sp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/txtRate2"
+            app:layout_constraintTop_toBottomOf="@+id/lblRate2"
+            android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="@+id/lblRate2"
+            app:layout_constraintStart_toStartOf="@+id/lblRate2" app:layout_constraintHorizontal_bias="0.0"
+            android:textSize="16sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
