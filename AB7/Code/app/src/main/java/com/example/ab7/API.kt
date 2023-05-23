@@ -95,6 +95,9 @@ class API {
     }
 
 
+    /**
+     * This function stores a given [JSONObject] in the database, with the current [Date]
+     */
     @SuppressLint("Recycle")
     private fun storeDB(activity: Activity, obj: JSONObject) : Long{
         val handler = DBHandler(activity);
