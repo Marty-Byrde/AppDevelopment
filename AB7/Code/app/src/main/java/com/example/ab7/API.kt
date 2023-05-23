@@ -93,4 +93,25 @@ class API {
         Log.d("Fetch-JSON-DB", "Saving factors in the database!")
         return db.insert(DBHandler.DBEntry.table_name, null, values)
     }
+
+    fun getFactors(activity: Activity, currencies: Array<String>) : JSONObject{
+        val handler = DBHandler(activity);
+        val db = handler.writableDatabase
+
+        val projection = arrayOf(BaseColumns._ID, DBHandler.DBEntry.dateColumnTitle, DBHandler.DBEntry.jsonColumnTitle)
+        val selection = "${DBHandler.DBEntry.dateColumnTitle} = ?"
+        val selectionArgs = arrayOf(formatter.format(Date()))
+
+        val rows: Cursor = db.query(DBHandler.DBEntry.table_name, projection, selection, selectionArgs, null, null, null)
+        while(rows.moveToNext()){
+            val jsonStr = rows.getString(rows.getColumnIndex(DBHandler.DBEntry.jsonColumnTitle) ?: 0)
+            if(jsonStr.toString().isBlank()) break;
+
+            Log.d("Fetch-JSON-DB", "I have retrieved the json-factors from the database!")
+            return JSONObject(jsonStr)
+        }
+
+        return fetch(activity, currencies)
+    }
+
 }
