@@ -23,7 +23,7 @@ class API {
     private val formatter = SimpleDateFormat("dd_MM_yyyy")
 
     @SuppressLint("SimpleDateFormat")
-    fun getData(activity: Activity, currencies: Array<String>) : JSONObject{
+    fun getLocalData(activity: Activity, currencies: Array<String>) : JSONObject{
         val fileName = "store_data_${formatter.format(Date())}.json"
         val stringBuffer = StringBuffer()
         val fileInputStream: FileInputStream
@@ -82,7 +82,7 @@ class API {
 
 
     @SuppressLint("Recycle")
-    fun insertFactors(activity: Activity, obj: JSONObject) : Long{
+    fun storeDB(activity: Activity, obj: JSONObject) : Long{
         val handler = DBHandler(activity);
         val db = handler.writableDatabase
 
@@ -94,7 +94,7 @@ class API {
         return db.insert(DBHandler.DBEntry.table_name, null, values)
     }
 
-    fun getFactors(activity: Activity, currencies: Array<String>) : JSONObject{
+    fun getDBData(activity: Activity, currencies: Array<String>) : JSONObject{
         val handler = DBHandler(activity);
         val db = handler.writableDatabase
 
@@ -112,7 +112,7 @@ class API {
 
             if(!json.has(currencies[0])) break;
             if(!json.has(currencies[1])) break;
-            
+
             return json
         }
 
