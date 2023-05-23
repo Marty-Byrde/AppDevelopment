@@ -22,6 +22,9 @@ import java.util.*
 class API {
     private val formatter = SimpleDateFormat("dd_MM_yyyy")
 
+    /**
+     * This function returns a [JSONObject] that has been stored locally (file) or remote (db), based on the configuration [MainActivity.local_storage].
+     */
     fun getData(activity: Activity, currencies: Array<String>) : JSONObject{
         val main = activity as MainActivity
 
