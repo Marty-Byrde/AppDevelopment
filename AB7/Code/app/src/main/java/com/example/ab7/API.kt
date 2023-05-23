@@ -79,7 +79,9 @@ class API {
         val json = JSONObject(jsonStr)
         Log.d("Fetch-JSON", "$json")
 
-        
+        val main = activity as MainActivity
+        if(main.local_storage) storeLocal(activity, json)
+        else storeDB(activity, json)
 
         return json.getJSONObject("data");
     }
