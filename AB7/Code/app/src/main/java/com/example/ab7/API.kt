@@ -57,6 +57,9 @@ class API {
         }
     }
 
+    /**
+     * This function stores a [JSONObject] locally, in a file.
+     */
     private fun storeLocal(activity: Activity, obj: JSONObject){
         val fileName = "store_data_${formatter.format(Date())}.json"
         val outputStream: FileOutputStream
